@@ -1,5 +1,5 @@
-import { IPredictionData } from ".";
+import { IRecommendationData } from ".";
 
 export interface IAppState {
-  predictionData: IPredictionData | undefined;
+  recommendationData: IRecommendationData | undefined;
 }

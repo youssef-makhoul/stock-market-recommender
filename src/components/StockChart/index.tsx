@@ -28,7 +28,12 @@ const ResultsForm: React.FC<IProps> = props => {
   };
   return (
     <div>
-      <Line data={getChartData(props.stockData)} />
+      <Line
+        width={100}
+        height={400}
+        options={{ maintainAspectRatio: false }}
+        data={getChartData(props.stockData)}
+      />
     </div>
   );
 };

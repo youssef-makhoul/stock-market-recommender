@@ -1,8 +1,8 @@
 import { IStockData } from "./stockData";
 import { ISocialMediaData } from "./socialMediaData";
 
-export interface IPredictionData {
+export interface IRecommendationData {
   stockData: Array<IStockData>;
   socialMediaData: ISocialMediaData;
-  prediction: string;
+  recommendation: string;
 }

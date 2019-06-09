@@ -9,8 +9,8 @@ export default (
 ) =>
   produce(state, draftState => {
     switch (action.type) {
-      case actionType.UPDATE_STOCK_PREDICTION_DATA:
-        draftState.predictionData = action.payload.value;
+      case actionType.UPDATE_STOCK_RECOMMENDATION_DATA:
+        draftState.recommendationData = action.payload.value;
         break;
       default:
         break;

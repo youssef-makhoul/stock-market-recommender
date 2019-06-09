@@ -1,6 +1,6 @@
 import { IAppState } from "../types";
 
 const initialstate: IAppState = {
-  predictionData: undefined
+  recommendationData: undefined
 };
 export default initialstate;

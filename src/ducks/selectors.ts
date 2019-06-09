@@ -1,7 +1,7 @@
-import { IPredictionData, IStockData } from "../types";
+import { IRecommendationData, IStockData } from "../types";
 
 export function selectStockData(
-  predictionData: IPredictionData
+  predictionData: IRecommendationData
 ): Array<IStockData> {
   return predictionData.stockData;
 }

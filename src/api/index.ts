@@ -1,4 +1,4 @@
-import { ISocialMediaData, IStockData, IPredictionData } from "../types";
+import { ISocialMediaData, IStockData, IRecommendationData } from "../types";
 import { generateRandomPositiveNumber, generateDatesArray } from "../helpers";
 
 const maxStockPrice = 400;
@@ -41,7 +41,12 @@ function socialMediaCountGenerator(
   };
 }
 
-function recommendationAlgorithm() {}
+function recommendationAlgorithm(
+  stockData: Array<IStockData>,
+  socialMediaData: ISocialMediaData
+): string {
+  return "hold";
+}
 export function getAvailableSocialMediaPlatforms(): Array<string> {
   return ["Facebook", "Twitter", "Linkedin"];
 }
@@ -50,21 +55,27 @@ export function getPredictionForStock(
   stockSymbol: string,
   numberOfDays: number,
   source: string
-): Promise<IPredictionData | undefined> {
+): Promise<IRecommendationData | undefined> {
   //simulating fetch behaviour as set time out
-  let p: Promise<IPredictionData | undefined> = new Promise(
+  let p: Promise<IRecommendationData | undefined> = new Promise(
     (resolve, reject) => {
       setTimeout(() => {
         if (stockSymbol === "") reject("stock symbol is emtpy");
         if (numberOfDays <= 0) reject("number of days is invalid");
         if (source === "") reject("no social media is source is provided");
-        const pr: IPredictionData = {
-          prediction: "hold",
-          stockData: stockPriceGenerator(
-            stockSymbol,
-            generateDatesArray(numberOfDays)
-          ),
-          socialMediaData: socialMediaCountGenerator(stockSymbol, source)
+        const stockData = stockPriceGenerator(
+          stockSymbol,
+          generateDatesArray(numberOfDays)
+        );
+        const socialMediaData = socialMediaCountGenerator(stockSymbol, source);
+        const recommendation = recommendationAlgorithm(
+          stockData,
+          socialMediaData
+        );
+        const pr: IRecommendationData = {
+          recommendation,
+          stockData,
+          socialMediaData
         };
         resolve(pr);
       }, 500);
