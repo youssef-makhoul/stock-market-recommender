@@ -1,8 +1,8 @@
 import ActionType from "./actions.types";
-import { IStockData } from "../types";
+import { IStockData, IPredictionData } from "../types";
 
-export const SaveData = (data: Array<IStockData>) => ({
-  type: ActionType.SAVE_DATA,
+export const updateStockPredictionData = (data: IPredictionData) => ({
+  type: ActionType.UPDATE_STOCK_PREDICTION_DATA,
   payload: {
     value: data
   }

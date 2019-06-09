@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Header } from "./components";
+import { Header, InputForm, ResultsForm } from "./components";
 import createStore from "./ducks/store";
 import { Provider } from "react-redux";
 import "./App.css";
@@ -11,6 +11,8 @@ const App: React.FC = () => {
     <div className="App">
       <Provider store={store}>
         <Header />
+        <InputForm />
+        <ResultsForm />
       </Provider>
     </div>
   );

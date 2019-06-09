@@ -1,4 +1,4 @@
-export function generateDates(days: number): Array<Date> {
+export function generateDatesArray(days: number): Array<Date> {
   const dates: Array<Date> = [];
   for (let index = 0; index < days; index++) {
     let day = new Date();

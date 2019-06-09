@@ -1,5 +1,5 @@
-import { IStockData } from ".";
+import { IPredictionData } from ".";
 
 export interface IAppState {
-  stockData: Array<IStockData>;
+  predictionData: IPredictionData | undefined;
 }
