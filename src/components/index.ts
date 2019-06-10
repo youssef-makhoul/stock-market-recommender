@@ -3,11 +3,12 @@ import InputForm from "./InputForm";
 import ResultsContainer from "./ResultsContainer";
 import StockChart from "./StockChart";
 import RecommendationResult from "./RecommendationResult";
-
+import SocialMediaSlide from "./SocialMediaSlide";
 export {
   Header,
   InputForm,
-  ResultsContainer as ResultsForm,
+  ResultsContainer,
   StockChart,
-  RecommendationResult
+  RecommendationResult,
+  SocialMediaSlide
 };

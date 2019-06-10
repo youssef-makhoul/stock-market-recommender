@@ -1,10 +1,13 @@
 import { ISocialMediaData, IStockData, IRecommendationData } from "../types";
 import { generateRandomPositiveNumber, generateDatesArray } from "../helpers";
+//@ts-ignore
+import generateRandomSentence from "random-sentence";
 
 const maxStockPrice = 400;
 const minStockPrice = 0;
 const maxSocialMediaPostCount = 100;
 const minSocialMediaPostCount = 0;
+const socialMediaPostsCount = 15;
 
 function stockPriceGenerator(
   stockSymbol: string,
@@ -49,6 +52,14 @@ function recommendationAlgorithm(
 }
 export function getAvailableSocialMediaPlatforms(): Array<string> {
   return ["Facebook", "Twitter", "Linkedin"];
+}
+
+export function getSocialMediaPostsForStock(stockSymbol: string): string[] {
+  const arr: string[] = [];
+  for (let index = 0; index < socialMediaPostsCount; index++) {
+    arr.push("#" + stockSymbol + ": " + generateRandomSentence());
+  }
+  return arr;
 }
 
 export function getPredictionForStock(

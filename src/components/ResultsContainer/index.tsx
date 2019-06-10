@@ -2,8 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import * as selectors from "../../ducks/selectors";
 import { IAppState, IStockData, ISocialMediaData } from "../../types";
-import { StockChart, RecommendationResult } from "..";
-import { throwStatement } from "@babel/types";
+import { StockChart, RecommendationResult, SocialMediaSlide } from "..";
 
 interface IState {}
 interface IProps {
@@ -24,6 +23,10 @@ class ResultsContainer extends React.Component<IProps, IState> {
               socialMediaData={this.props.socialMediaData}
             />
             <StockChart stockData={this.props.stockData} />
+            <SocialMediaSlide
+              stockSymbol={this.props.socialMediaData.stockSymbol}
+              socialMediaSource={this.props.socialMediaData.source}
+            />
           </>
         ) : null}
       </div>
