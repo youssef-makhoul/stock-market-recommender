@@ -77,7 +77,7 @@ export function getPredictionForStock(
         const stockData = stockPriceGenerator(
           stockSymbol,
           generateDatesArray(numberOfDays)
-        );
+        ).reverse();
         const socialMediaData = socialMediaCountGenerator(stockSymbol, source);
         const recommendation = recommendationAlgorithm(
           stockData,

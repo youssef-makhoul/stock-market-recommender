@@ -2,6 +2,7 @@ import * as React from "react";
 import * as api from "../../api";
 import { connect } from "react-redux";
 import { updateStockPredictionData } from "../../ducks/actions";
+import "./index.scss";
 interface IState {
   numberOfDaysValue: number;
   stockSymbolValue: string;
@@ -53,12 +54,12 @@ class InputForm extends React.Component<IProps, IState> {
   render() {
     let socialMediaPlatforms = api.getAvailableSocialMediaPlatforms();
     return (
-      <div>
+      <div className="input-form-container">
         <form onSubmit={this.handleSubmit}>
           <table>
             <tbody>
               <tr>
-                <td>
+                <td className="label">
                   <label htmlFor="numberOfDaysInput">Number Of Days</label>
                 </td>
                 <td>
@@ -71,7 +72,7 @@ class InputForm extends React.Component<IProps, IState> {
                 </td>
               </tr>
               <tr>
-                <td>
+                <td className="label">
                   {" "}
                   <label htmlFor="stockSymbolInput">Stock Symbol</label>
                 </td>
@@ -85,14 +86,15 @@ class InputForm extends React.Component<IProps, IState> {
                 </td>
               </tr>
               <tr>
-                <td>
-                  <label htmlFor="SocialMediaPlatformInput">social media</label>
+                <td className="label">
+                  <label htmlFor="SocialMediaPlatformInput">Social Media</label>
                 </td>
                 <td>
                   <select
                     id="SocialMediaPlatformInput"
                     defaultValue={""}
                     onChange={this.handleSocialMediaPlatformChange}
+                    style={{ width: "100%" }}
                   >
                     <option value={""}>please select</option>
                     {socialMediaPlatforms.map(
@@ -108,8 +110,10 @@ class InputForm extends React.Component<IProps, IState> {
                 </td>
               </tr>
               <tr>
-                <td>
-                  <button type="submit">submit</button>
+                <td colSpan={2}>
+                  <button type="submit" style={{ width: "100%" }}>
+                    Show Recommendation
+                  </button>
                 </td>
               </tr>
             </tbody>
